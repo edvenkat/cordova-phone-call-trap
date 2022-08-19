@@ -6,7 +6,7 @@ import org.apache.cordova.PluginResult;
 import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-
+import android.os.Bundle;
 import org.json.JSONException;
 import org.json.JSONArray;
 
@@ -57,7 +57,10 @@ class CallStateListener extends PhoneStateListener {
             break;
 
             case TelephonyManager.CALL_STATE_RINGING:
-            msg = "RINGING";
+              Bundle bundle = intent.getExtras();
+             String phoneNumber = bundle.getString("incoming_number");
+             msg = "RINGING&" + phoneNumber;
+            //msg = "RINGING";
             break;
         }
 
