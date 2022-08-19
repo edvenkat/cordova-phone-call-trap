@@ -58,7 +58,9 @@ class CallStateListener extends PhoneStateListener {
             break;
 
             case TelephonyManager.CALL_STATE_RINGING:
-             msg = "RINGING&" + incomingNumber;
+                 Bundle bundle = Intent.getExtras();
+      String phoneNumber = bundle.getString("incoming_number");
+             msg = "RINGING&" + phoneNumber;
             //msg = "RINGING";
             break;
         }
