@@ -41,7 +41,7 @@ class CallStateListener extends PhoneStateListener {
         this.callbackContext = callbackContext;
     }
 
-    public void onCallStateChanged(int state, String incomingNumber, Intent intent) {
+    public void onCallStateChanged(int state, String incomingNumber) { //, Intent intent
         super.onCallStateChanged(state, incomingNumber);
 
         if (callbackContext == null) return;
@@ -58,10 +58,10 @@ class CallStateListener extends PhoneStateListener {
             break;
 
             case TelephonyManager.CALL_STATE_RINGING:
-                 Bundle bundle = intent.getExtras();
-      String phoneNumber = bundle.getString("incoming_number");
-             msg = "RINGING&" + phoneNumber;
-            //msg = "RINGING";
+//                  Bundle bundle = intent.getExtras();
+//       String phoneNumber = bundle.getString("incoming_number");
+//              msg = "RINGING&" + phoneNumber;
+            msg = "RINGING";
             break;
         }
 
